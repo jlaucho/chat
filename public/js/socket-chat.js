@@ -23,29 +23,22 @@ socket.on('listaPersonas', function( personas ){
     console.log(personas);
 });
 
-// escuchar
-// socket.on('disconnect', function() {
-    
-//     console.log('Perdimos conexión con el servidor');
-
+// Enviar información
+// socket.emit('crearMensaje', {
+//     usuario: 'Fernando',
+//     mensaje: 'Hola Mundo'
+// }, function(resp) {
+//     console.log('respuesta server: ', resp);
 // });
 
-socket.on('personaSalio', function( persona ){
-    console.log('El usuario ' + persona.nombre + ' salio del chat');
-});
-
-
-// Enviar información
-socket.emit('enviarMensaje', {
-    usuario: 'Fernando',
-    mensaje: 'Hola Mundo'
-}, function(resp) {
-    console.log('respuesta server: ', resp);
-});
-
 // Escuchar información
-socket.on('enviarMensaje', function(mensaje) {
+socket.on('crearMensaje', function(mensaje) {
 
-    console.log('Servidor:', mensaje);
+    console.log(mensaje);
 
+});
+
+//Mensajes privados
+socket.on('mensajePrivado', function( mensaje ){
+    console.log(mensaje);
 });
