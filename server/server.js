@@ -17,7 +17,9 @@ module.exports.io = socketIO(server);
 require('./sockets/socket');
 
 
+let { videoRoute } = require('./routes/video');
 
+app.use('/video', videoRoute);
 
 
 server.listen(port, (err) => {
